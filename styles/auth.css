@@ -1,0 +1,138 @@
+﻿::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #717171b0;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #717171b0;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #717171b0;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #717171b0;
+}
+
+body {
+	background: url(/doc/images/themountains.jpg) center no-repeat;
+	background-size: cover;
+	position: relative;
+	color: #292929;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+body:before {
+	content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.2);
+}
+
+.form {
+	background-color: #fff0;
+	width: 330px;
+	height: 493px;
+	margin: auto;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.main {
+	padding: 30px 0 15px 0;
+	background-color: #fff;
+	box-shadow: 0 20px 40px rgba(0,0,0,.4);
+}
+
+.header {
+	margin: 0 0 30px 0;
+}
+
+.button {
+	border: none;
+}
+
+.back {
+	width: 7%;
+	height: 7%;
+	float: left;
+	background: url(/images/back.svg) center no-repeat;
+	background-size: contain;
+	margin-left: 15px;
+}
+
+.logo {
+	font-family: 'Neucha', cursive;
+	font-size: 40px;
+	color: #ffd100;
+	text-align: center;
+	margin-right: 7%;
+}
+
+form {
+	margin: 50px auto 15px auto;
+	text-align: center;
+}
+
+input {
+	border: none;
+	border-bottom: 1px solid #7171713d;
+	width: 70%;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	font-size: 15px;
+	padding-bottom: 8px;
+}
+
+input:focus {
+	border-bottom: 2px solid #fd4;
+	padding-bottom: 7px;
+}
+
+.sub {
+	height: 40px;
+	background-color: #ffdd44eb;
+	border-radius: 3px;
+	margin-top: 0;
+	padding-bottom: 0;
+}
+
+.sub:focus {
+	box-shadow: 0 0 15px #ffdd44d6;
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.reg {
+	text-align: center;
+}
+
+.reg a {
+	color: #669;
+	font-size: 13px;
+}
+
+.reg p {
+	margin-bottom: 10px;	
+}
+
+.return {
+	height: 10%;
+	background-color: rgba(0,0,0,.3);
+	text-align: center;
+	color: #ececec;
+	font-size: 13px;
+}
+
+.return p{
+	line-height: 45px;
+}
+
+footer {
+    height: 6%;
+    margin: auto;
+    text-align: center;
+}
