@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<title>UFO | Космический блог</title>
+		<link rel='shortcut icon' href='/doc/images/icon.png' type='image/png'>
+		<link rel="stylesheet" type="text/css" href="styles/style_zero.css">
+		<link rel="stylesheet" type="text/css" href="styles/<?=$var["template"]?>.css">
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div class='logo'>
+				<a href="http://dao.su/"><h1>UFO</h1></a>
+			</div>
+		</header>
+		<div class='content'>
+		
+		<?php if ($var["template"]=="main") {
+		
+		for ($i=0;$i<count($var["postID"]);++$i) {?>
+			<section>
+				<div class="ttp image">
+					<a href="http://dao.su/page.php?postID=<?=$var["postID"][$i]?>"><img src='<?=$var["previewImg"][$i]?>' alt='<?=$var["head"][$i]?>'></a>
+				</div>
+				<div class="ttp preview">
+					<p class='date'><?=$var["date"][$i]?></p>
+					<h1><a href="http://dao.su/page.php?postID=<?=$var["postID"][$i]?>"><?=$var["head"][$i]?></a></h1>
+					<p><?=$var["preview"][$i]?></p>
+				</div>
+			</section>
+			<?php }?>
+			<form action="index.php" method="post" autocomplete="off" enctype="multipart/form-data">
+				<section>	
+					<div class="ttp image fileinput">
+						<label>
+							<input type='file' required name='filename'>
+						</label>
+					</div>
+					<div class="ttp preview">
+						<input type="text" name="head" required placeholder="Заголовок"><br>
+						<input type="text" name="preview" required placeholder="Анонс (не более 160 слов)"><br>
+						<textarea name="text" required placeholder="Текст поста" wrap="soft"></textarea><br>
+						<select name="tags">
+							<?php for ($i=0;$i<count($var["tags"]);++$i) {?>
+							<option><?=$var["tags"][$i]?></option>
+							<?php }?>
+						</select>
+						<input type="submit">
+					</div>
+				</section>
+			</form>
+			
+		<?php }else{ //СТРАНИЦА ПОСТА PAGE?>
+			<div class="left">
+			</div>
+			
+			<div class="middle">
+				<div class="post">
+					<h1><?=$var["head"][0]?></h1>
+					<img src='<?=$var["previewImg"][0]?>' alt='<?=$var["head"][0]?>'>
+					<div class="bodypost">
+						<div class="author"> <!-- Добить -->
+							<img src="doc/images/ava.jpg"> <? //СРАНЬ!!!! ?>
+							<p><a>Ru100m</a></p>
+							<p class='date'><?=$var["date"][0]?></p>
+						</div>
+						<div class="text">
+							<p><?=$var["text"][0]?></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="comments">
+				<h2>Комментарии (<?=$com["count"]?>)</h2>
+				<?php for ($i=0;$i<count($com["comDate"]);++$i) { //КОММЕНТАРИИ?>
+					<section>
+						<img src="<?=$com["avatar"][$i]?>">
+						<div class='cometext'>
+							<p class="name"><a href="profiles.php?login=<?=$com["login"][$i]?>"><?=$com["login"][$i]?></a><span class="date"><?=$com["comDate"][$i]?></span></p>
+							<p><?=$com["comText"][$i]?></p>
+						</div>
+					</section>
+				<?php }?>
+					<form action="page.php?postID=<?=$var["postID"][0]?>" method="post" autocomplete="off">
+						<textarea name="comText" required wrap="soft"></textarea><br>
+						<input type="submit" value="КОММЕНТИРОВАТЬ">
+					</form>
+				</div>
+			</div>
+			
+			<div class="right">
+				<div class="like">
+					<form action="page.php?postID=<?=$var["postID"][0]?>" method="post">
+						<input type="hidden" name="like" value="1">
+						<span><?=$var["lkCount"][0]?></span><input type="submit" value="">
+					</form>
+				</div>
+			</div>
+		<?php }?>
+		
+		</div>
+		<footer>
+			<p>by <a href="#">ru.100m</a></p>
+		</footer>
+	</body>
+</html>
